@@ -247,16 +247,18 @@ summary {
 <p>I will investigate how well the top-earners of the league are performing compared to the rest of the league. I will use in-game statistics to determine the performance of the players to see if they are worth the money.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmxpYnJhcnkoZHBseXIpXG5gYGAifQ== -->
-<pre class="r"><code>library(readr)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1NldCB1cFxubGlicmFyeShyZWFkcilcbmxpYnJhcnkoZHBseXIpXG5gYGAifQ== -->
+<pre class="r"><code>#Set up
+library(readr)
 library(dplyr)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkJBMjAyMF8yMDIxU2FsYXJpZXMgPC0gcmVhZF9jc3YoXCJOQkEyMDIwOjIwMjFTYWxhcmllcy5jc3ZcIilcblxuTkJBU3RhdHMgPC0gcmVhZF9jc3YoXCJOQkFTdGF0cy5jc3ZcIilcblxuU3RhdHNmcm9tTkJBIDwtIHJlYWRfY3N2KFwiU3RhdHNmcm9tTkJBLmNzdlwiKVxuXG5Ub3A1MG9mTkJBIDwtIHJlYWRfY3N2KFwiVG9wNTBvZk5CQS5jc3ZcIilcbmBgYCJ9 -->
-<pre class="r"><code>NBA2020_2021Salaries &lt;- read_csv(&quot;NBA2020:2021Salaries.csv&quot;)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1JlYWRpbmcgaW4gZGF0YSBmaWxlc1xuTkJBMjAyMF8yMDIxU2FsYXJpZXMgPC0gcmVhZF9jc3YoXCJOQkEyMDIwOjIwMjFTYWxhcmllcy5jc3ZcIilcblxuTkJBU3RhdHMgPC0gcmVhZF9jc3YoXCJOQkFTdGF0cy5jc3ZcIilcblxuU3RhdHNmcm9tTkJBIDwtIHJlYWRfY3N2KFwiU3RhdHNmcm9tTkJBLmNzdlwiKVxuXG5Ub3A1MG9mTkJBIDwtIHJlYWRfY3N2KFwiVG9wNTBvZk5CQS5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>#Reading in data files
+NBA2020_2021Salaries &lt;- read_csv(&quot;NBA2020:2021Salaries.csv&quot;)
 
 NBAStats &lt;- read_csv(&quot;NBAStats.csv&quot;)
 
@@ -268,11 +270,12 @@ Top50ofNBA &lt;- read_csv(&quot;Top50ofNBA.csv&quot;)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShOQkEyMDIwXzIwMjFTYWxhcmllcylcbmBgYCJ9 -->
-<pre class="r"><code>summary(NBA2020_2021Salaries)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1N1bW1hcnlcbnN1bW1hcnkoTkJBMjAyMF8yMDIxU2FsYXJpZXMpXG5gYGAifQ== -->
+<pre class="r"><code>#Summary
+summary(NBA2020_2021Salaries)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICMgICAgICAgICAgICBQbGF5ZXIgICAgICAgICAgICAyMDIxU2FsYXJ5ICAgICAgXG4gTWluLiAgIDogIDEuMCAgIExlbmd0aDo1NzcgICAgICAgICBNaW4uICAgOiAgIDI1MDAwICBcbiAxc3QgUXUuOjE0NS4wICAgQ2xhc3MgOmNoYXJhY3RlciAgIDFzdCBRdS46IDE1MTc5ODEgIFxuIE1lZGlhbiA6Mjg5LjAgICBNb2RlICA6Y2hhcmFjdGVyICAgTWVkaWFuIDogMjg5NTcyMCAgXG4gTWVhbiAgIDoyODcuMSAgICAgICAgICAgICAgICAgICAgICBNZWFuICAgOiA2NzUyMTUwICBcbiAzcmQgUXUuOjQwOS4wICAgICAgICAgICAgICAgICAgICAgIDNyZCBRdS46IDg1MDAwMDAgIFxuIE1heC4gICA6NTc2LjAgICAgICAgICAgICAgICAgICAgICAgTWF4LiAgIDo0MzAwNjM2MiAgXG4ifQ== -->
-<pre><code>       #            Player            2021Salary      
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICMgICAgICAgICAgICBQbGF5ZXIgICAgICAgICAgICAgIFNhbGFyeSAgICAgICAgXG4gTWluLiAgIDogIDEuMCAgIExlbmd0aDo1NzcgICAgICAgICBNaW4uICAgOiAgIDI1MDAwICBcbiAxc3QgUXUuOjE0NS4wICAgQ2xhc3MgOmNoYXJhY3RlciAgIDFzdCBRdS46IDE1MTc5ODEgIFxuIE1lZGlhbiA6Mjg5LjAgICBNb2RlICA6Y2hhcmFjdGVyICAgTWVkaWFuIDogMjg5NTcyMCAgXG4gTWVhbiAgIDoyODcuMSAgICAgICAgICAgICAgICAgICAgICBNZWFuICAgOiA2NzUyMTUwICBcbiAzcmQgUXUuOjQwOS4wICAgICAgICAgICAgICAgICAgICAgIDNyZCBRdS46IDg1MDAwMDAgIFxuIE1heC4gICA6NTc2LjAgICAgICAgICAgICAgICAgICAgICAgTWF4LiAgIDo0MzAwNjM2MiAgXG4ifQ== -->
+<pre><code>       #            Player              Salary        
  Min.   :  1.0   Length:577         Min.   :   25000  
  1st Qu.:145.0   Class :character   1st Qu.: 1517981  
  Median :289.0   Mode  :character   Median : 2895720  
@@ -347,9 +350,26 @@ Top50ofNBA &lt;- read_csv(&quot;Top50ofNBA.csv&quot;)</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>From the summarizes of these two tables, we can see that the average player is paid $6,752,150 for the season. The average player gets 8.6 points, 1.9 assists, and 3.6 rebounds.</p>
+<p>In the middle of the NBA season, the league holds an All-Star Break. One of the events and the biggest one is the All-Star game. This game involves about 25 of the top players of the league. So let’s see how the top 25 compare to the rest of the league statistically.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVG9wMjVvZk5CQSA8LVxuICBUb3A1MG9mTkJBICU+JVxuICBzZWxlY3QoUGxheWVyLCBQVFMsIFJFQiwgQVNULCBFRkYpICU+JVxuICBsZWZ0X2pvaW4oTkJBMjAyMF8yMDIxU2FsYXJpZXMgJT4lIHNlbGVjdChQbGF5ZXIsIFNhbGFyeSksIGJ5IFwiUGxheWVyXCIpXG5gYGAifQ== -->
+<pre class="r"><code>Top25ofNBA &lt;-
+  Top50ofNBA %&gt;%
+  select(Player, PTS, REB, AST, EFF) %&gt;%
+  left_join(NBA2020_2021Salaries %&gt;% select(Player, Salary), by &quot;Player&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IHVuZXhwZWN0ZWQgc3RyaW5nIGNvbnN0YW50IGluOlxuXCIgIHNlbGVjdChQbGF5ZXIsIFBUUywgUkVCLCBBU1QsIEVGRikgJT4lXG4gIGxlZnRfam9pbihOQkEyMDIwXzIwMjFTYWxhcmllcyAlPiUgc2VsZWN0KFBsYXllciwgU2FsYXJ5KSwgYnkgXCJQbGF5ZXJcIlwiXG4ifQ== -->
+<pre><code>Error: unexpected string constant in:
+&quot;  select(Player, PTS, REB, AST, EFF) %&gt;%
+  left_join(NBA2020_2021Salaries %&gt;% select(Player, Salary), by &quot;Player&quot;&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBSZXBvcnQiCmF1dGhvcjogIkRhbmllbCBTZW9rIExlZSIKZGF0ZTogIk1heSA0LCAyMDIxIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpIb3cgd2VsbCBhcmUgdGhlIHBsYXllcnMgcGVyZm9ybWluZyBhZnRlciBzaWduaW5nIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzPwoKT3ZlciB0aGUgeWVhcnMsIHRoZSBOQkEgaGFzIGJlZW4gYnJpbmdpbmcgaW4gbW9yZSByZXZlbnVlLiBUaGlzIHJhaXNlcyB0aGUgbmV0IHdvcnRoIG9mIHRlYW1zIHdoaWNoIGFsbG93cyB0aGVtIHRvIHNpZ24gYmV0dGVyIHBsYXllcnMgYW5kIGJpZ2dlciBjb250cmFjdHMuIFdoaWxlIHRoZSBhdmVyYWdlIHBsYXllciBicmluZ3MgaW4gYSBnb29kIGFtb3VudCBvZiBtb25leSwgYSBzdXBlcnN0YXIgd2lsbCBzaWduIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzLiAKCkluIHRoZSBzdW1tZXIgb2YgMjAxOSwgYW4gTkJBIHN0YXIsIG5hbWVkIFJ1ZHkgR29iZXJ0LCBzaWduZWQgYSBmaXZlLXllYXIgJDIwNSBtaWxsaW9uIGNvbnRyYWN0IGV4dGVuc2lvbiB3aXRoIHRoZSBVdGFoIEphenouIFNoYXF1aWxsZSBPJ05lYWwgY3JpdGljaXplZCBHb2JlcnQncyBnYW1lIGFuZCBjbGFpbWVkIHRoYXQgaGUncyBub3Qgd29ydGggdGhhdCBtdWNoLiAKCkkgd2lsbCBpbnZlc3RpZ2F0ZSBob3cgd2VsbCB0aGUgdG9wLWVhcm5lcnMgb2YgdGhlIGxlYWd1ZSBhcmUgcGVyZm9ybWluZyBjb21wYXJlZCB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlLiBJIHdpbGwgdXNlIGluLWdhbWUgc3RhdGlzdGljcyB0byBkZXRlcm1pbmUgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBwbGF5ZXJzIHRvIHNlZSBpZiB0aGV5IGFyZSB3b3J0aCB0aGUgbW9uZXkuCgpgYGB7cn0KbGlicmFyeShyZWFkcikKbGlicmFyeShkcGx5cikKYGBgCgpgYGB7cn0KTkJBMjAyMF8yMDIxU2FsYXJpZXMgPC0gcmVhZF9jc3YoIk5CQTIwMjA6MjAyMVNhbGFyaWVzLmNzdiIpCgpOQkFTdGF0cyA8LSByZWFkX2NzdigiTkJBU3RhdHMuY3N2IikKClN0YXRzZnJvbU5CQSA8LSByZWFkX2NzdigiU3RhdHNmcm9tTkJBLmNzdiIpCgpUb3A1MG9mTkJBIDwtIHJlYWRfY3N2KCJUb3A1MG9mTkJBLmNzdiIpCmBgYAoKYGBge3J9CnN1bW1hcnkoTkJBMjAyMF8yMDIxU2FsYXJpZXMpCmBgYAoKYGBge3J9CnN1bW1hcnkoTkJBU3RhdHMpCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBSZXBvcnQiCmF1dGhvcjogIkRhbmllbCBTZW9rIExlZSIKZGF0ZTogIk1heSA0LCAyMDIxIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpIb3cgd2VsbCBhcmUgdGhlIHBsYXllcnMgcGVyZm9ybWluZyBhZnRlciBzaWduaW5nIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzPwoKT3ZlciB0aGUgeWVhcnMsIHRoZSBOQkEgaGFzIGJlZW4gYnJpbmdpbmcgaW4gbW9yZSByZXZlbnVlLiBUaGlzIHJhaXNlcyB0aGUgbmV0IHdvcnRoIG9mIHRlYW1zIHdoaWNoIGFsbG93cyB0aGVtIHRvIHNpZ24gYmV0dGVyIHBsYXllcnMgYW5kIGJpZ2dlciBjb250cmFjdHMuIFdoaWxlIHRoZSBhdmVyYWdlIHBsYXllciBicmluZ3MgaW4gYSBnb29kIGFtb3VudCBvZiBtb25leSwgYSBzdXBlcnN0YXIgd2lsbCBzaWduIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzLiAKCkluIHRoZSBzdW1tZXIgb2YgMjAxOSwgYW4gTkJBIHN0YXIsIG5hbWVkIFJ1ZHkgR29iZXJ0LCBzaWduZWQgYSBmaXZlLXllYXIgJDIwNSBtaWxsaW9uIGNvbnRyYWN0IGV4dGVuc2lvbiB3aXRoIHRoZSBVdGFoIEphenouIFNoYXF1aWxsZSBPJ05lYWwgY3JpdGljaXplZCBHb2JlcnQncyBnYW1lIGFuZCBjbGFpbWVkIHRoYXQgaGUncyBub3Qgd29ydGggdGhhdCBtdWNoLiAKCkkgd2lsbCBpbnZlc3RpZ2F0ZSBob3cgd2VsbCB0aGUgdG9wLWVhcm5lcnMgb2YgdGhlIGxlYWd1ZSBhcmUgcGVyZm9ybWluZyBjb21wYXJlZCB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlLiBJIHdpbGwgdXNlIGluLWdhbWUgc3RhdGlzdGljcyB0byBkZXRlcm1pbmUgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBwbGF5ZXJzIHRvIHNlZSBpZiB0aGV5IGFyZSB3b3J0aCB0aGUgbW9uZXkuCgpgYGB7cn0KI1NldCB1cApsaWJyYXJ5KHJlYWRyKQpsaWJyYXJ5KGRwbHlyKQpgYGAKCmBgYHtyfQojUmVhZGluZyBpbiBkYXRhIGZpbGVzCk5CQTIwMjBfMjAyMVNhbGFyaWVzIDwtIHJlYWRfY3N2KCJOQkEyMDIwOjIwMjFTYWxhcmllcy5jc3YiKQoKTkJBU3RhdHMgPC0gcmVhZF9jc3YoIk5CQVN0YXRzLmNzdiIpCgpTdGF0c2Zyb21OQkEgPC0gcmVhZF9jc3YoIlN0YXRzZnJvbU5CQS5jc3YiKQoKVG9wNTBvZk5CQSA8LSByZWFkX2NzdigiVG9wNTBvZk5CQS5jc3YiKQpgYGAKCmBgYHtyfQojU3VtbWFyeQpzdW1tYXJ5KE5CQTIwMjBfMjAyMVNhbGFyaWVzKQpgYGAKCmBgYHtyfQojU3VtbWFyeQpzdW1tYXJ5KE5CQVN0YXRzKQpgYGAKCkZyb20gdGhlIHN1bW1hcml6ZXMgb2YgdGhlc2UgdHdvIHRhYmxlcywgd2UgY2FuIHNlZSB0aGF0IHRoZSBhdmVyYWdlIHBsYXllciBpcyBwYWlkICQ2LDc1MiwxNTAgZm9yIHRoZSBzZWFzb24uIFRoZSBhdmVyYWdlIHBsYXllciBnZXRzIDguNiBwb2ludHMsIDEuOSBhc3Npc3RzLCBhbmQgMy42IHJlYm91bmRzLgoKSW4gdGhlIG1pZGRsZSBvZiB0aGUgTkJBIHNlYXNvbiwgdGhlIGxlYWd1ZSBob2xkcyBhbiBBbGwtU3RhciBCcmVhay4gT25lIG9mIHRoZSBldmVudHMgYW5kIHRoZSBiaWdnZXN0IG9uZSBpcyB0aGUgQWxsLVN0YXIgZ2FtZS4gVGhpcyBnYW1lIGludm9sdmVzIGFib3V0IDI1IG9mIHRoZSB0b3AgcGxheWVycyBvZiB0aGUgbGVhZ3VlLiBTbyBsZXQncyBzZWUgaG93IHRoZSB0b3AgMjUgY29tcGFyZSB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlIHN0YXRpc3RpY2FsbHkuCgpgYGB7cn0KVG9wMjVvZk5CQSA8LQogIFRvcDUwb2ZOQkEgJT4lCiAgc2VsZWN0KFBsYXllciwgUFRTLCBSRUIsIEFTVCwgRUZGKSAlPiUKICBsZWZ0X2pvaW4oTkJBMjAyMF8yMDIxU2FsYXJpZXMgJT4lIHNlbGVjdChQbGF5ZXIsIFNhbGFyeSksIGJ5ICJQbGF5ZXIiKQpgYGAKCg==</div>
 
 
 

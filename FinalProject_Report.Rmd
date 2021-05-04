@@ -14,11 +14,13 @@ In the summer of 2019, an NBA star, named Rudy Gobert, signed a five-year $205 m
 I will investigate how well the top-earners of the league are performing compared to the rest of the league. I will use in-game statistics to determine the performance of the players to see if they are worth the money.
 
 ```{r}
+#Set up
 library(readr)
 library(dplyr)
 ```
 
 ```{r}
+#Reading in data files
 NBA2020_2021Salaries <- read_csv("NBA2020:2021Salaries.csv")
 
 NBAStats <- read_csv("NBAStats.csv")
@@ -29,10 +31,23 @@ Top50ofNBA <- read_csv("Top50ofNBA.csv")
 ```
 
 ```{r}
+#Summary
 summary(NBA2020_2021Salaries)
 ```
 
 ```{r}
+#Summary
 summary(NBAStats)
+```
+
+From the summarizes of these two tables, we can see that the average player is paid $6,752,150 for the season. The average player gets 8.6 points, 1.9 assists, and 3.6 rebounds.
+
+In the middle of the NBA season, the league holds an All-Star Break. One of the events and the biggest one is the All-Star game. This game involves about 25 of the top players of the league. So let's see how the top 25 compare to the rest of the league statistically.
+
+```{r}
+Top25ofNBA <-
+  Top50ofNBA %>%
+  select(Player, PTS, REB, AST, EFF) %>%
+  left_join(NBA2020_2021Salaries %>% select(Player, Salary), by "Player")
 ```
 

@@ -9,8 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="AUTHOR NAME(S)" />
+<meta name="author" content="Daniel Seok Lee" />
 
+<meta name="date" content="2021-05-04" />
 
 <title>Final Project Report</title>
 
@@ -233,18 +234,89 @@ summary {
 
 
 <h1 class="title toc-ignore">Final Project Report</h1>
-<h4 class="author">AUTHOR NAME(S)</h4>
-<h4 class="date">Due: DATE</h4>
+<h4 class="author">Daniel Seok Lee</h4>
+<h4 class="date">May 4, 2021</h4>
 
 </div>
 
 
 <!-- rnb-text-begin -->
+<p>How well are the players performing after signing multi-year contracts for millions of dollars?</p>
+<p>Over the years, the NBA has been bringing in more revenue. This raises the net worth of teams which allows them to sign better players and bigger contracts. While the average player brings in a good amount of money, a superstar will sign multi-year contracts for millions of dollars.</p>
+<p>In the summer of 2019, an NBA star, named Rudy Gobert, signed a five-year $205 million contract extension with the Utah Jazz. Shaquille O’Neal criticized Gobert’s game and claimed that he’s not worth that much.</p>
+<p>I will investigate how well the top-earners of the league are performing compared to the rest of the league. I will use in-game statistics to determine the performance of the players to see if they are worth the money.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbmxpYnJhcnkoZHBseXIpXG5gYGAifQ== -->
+<pre class="r"><code>library(readr)
+library(dplyr)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkJBMjAyMF8yMDIxU2FsYXJpZXMgPC0gcmVhZF9jc3YoXCJOQkEyMDIwOjIwMjFTYWxhcmllcy5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>NBA2020_2021Salaries &lt;- read_csv(&quot;NBA2020:2021Salaries.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTWlzc2luZyBjb2x1bW4gbmFtZXMgZmlsbGVkIGluOiAnWDQnIFs0XSwgJ1g1JyBbNV0sICdYNicgWzZdXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICBgI2AgPSBjb2xfZG91YmxlKCksXG4gIFBsYXllciA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYDIwMjAvMjFgID0gY29sX2NoYXJhY3RlcigpLFxuICBYNCA9IGNvbF9sb2dpY2FsKCksXG4gIFg1ID0gY29sX2xvZ2ljYWwoKSxcbiAgWDYgPSBjb2xfbG9naWNhbCgpXG4pXG4ifQ== -->
+<pre><code>Missing column names filled in: &#39;X4&#39; [4], &#39;X5&#39; [5], &#39;X6&#39; [6]
+── Column specification ────────────
+cols(
+  `#` = col_double(),
+  Player = col_character(),
+  `2020/21` = col_character(),
+  X4 = col_logical(),
+  X5 = col_logical(),
+  X6 = col_logical()
+)</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkJBU3RhdHMgPC0gcmVhZF9jc3YoXCJOQkFTdGF0cy5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>NBAStats &lt;- read_csv(&quot;NBAStats.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgUGxheWVyID0gY29sX2NoYXJhY3RlcigpLFxuICBQb3MgPSBjb2xfY2hhcmFjdGVyKCksXG4gIFRtID0gY29sX2NoYXJhY3RlcigpXG4pXG7ihLkgVXNlIGBzcGVjKClgIGZvciB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
+<pre><code>
+── Column specification ────────────
+cols(
+  .default = col_double(),
+  Player = col_character(),
+  Pos = col_character(),
+  Tm = col_character()
+)
+ℹ Use `spec()` for the full column specifications.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3RhdHNmcm9tTkJBIDwtIHJlYWRfY3N2KFwiU3RhdHNmcm9tTkJBLmNzdlwiKVxuYGBgIn0= -->
+<pre class="r"><code>StatsfromNBA &lt;- read_csv(&quot;StatsfromNBA.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgUGxheWVyID0gY29sX2NoYXJhY3RlcigpXG4pXG7ihLkgVXNlIGBzcGVjKClgIGZvciB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
+<pre><code>
+── Column specification ────────────
+cols(
+  .default = col_double(),
+  Player = col_character()
+)
+ℹ Use `spec()` for the full column specifications.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVG9wNTBvZk5CQSA8LSByZWFkX2NzdihcIlRvcDUwb2ZOQkEuY3N2XCIpXG5gYGAifQ== -->
+<pre class="r"><code>Top50ofNBA &lt;- read_csv(&quot;Top50ofNBA.csv&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgUGxheWVyID0gY29sX2NoYXJhY3RlcigpXG4pXG7ihLkgVXNlIGBzcGVjKClgIGZvciB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
+<pre><code>
+── Column specification ────────────
+cols(
+  .default = col_double(),
+  Player = col_character()
+)
+ℹ Use `spec()` for the full column specifications.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBSZXBvcnQiCmF1dGhvcjogIkFVVEhPUiBOQU1FKFMpIgpkYXRlOiAiRHVlOiBEQVRFIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKCgpgYGB7cn0KCgpgYGAK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBSZXBvcnQiCmF1dGhvcjogIkRhbmllbCBTZW9rIExlZSIKZGF0ZTogIk1heSA0LCAyMDIxIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpIb3cgd2VsbCBhcmUgdGhlIHBsYXllcnMgcGVyZm9ybWluZyBhZnRlciBzaWduaW5nIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzPwoKT3ZlciB0aGUgeWVhcnMsIHRoZSBOQkEgaGFzIGJlZW4gYnJpbmdpbmcgaW4gbW9yZSByZXZlbnVlLiBUaGlzIHJhaXNlcyB0aGUgbmV0IHdvcnRoIG9mIHRlYW1zIHdoaWNoIGFsbG93cyB0aGVtIHRvIHNpZ24gYmV0dGVyIHBsYXllcnMgYW5kIGJpZ2dlciBjb250cmFjdHMuIFdoaWxlIHRoZSBhdmVyYWdlIHBsYXllciBicmluZ3MgaW4gYSBnb29kIGFtb3VudCBvZiBtb25leSwgYSBzdXBlcnN0YXIgd2lsbCBzaWduIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzLiAKCkluIHRoZSBzdW1tZXIgb2YgMjAxOSwgYW4gTkJBIHN0YXIsIG5hbWVkIFJ1ZHkgR29iZXJ0LCBzaWduZWQgYSBmaXZlLXllYXIgJDIwNSBtaWxsaW9uIGNvbnRyYWN0IGV4dGVuc2lvbiB3aXRoIHRoZSBVdGFoIEphenouIFNoYXF1aWxsZSBPJ05lYWwgY3JpdGljaXplZCBHb2JlcnQncyBnYW1lIGFuZCBjbGFpbWVkIHRoYXQgaGUncyBub3Qgd29ydGggdGhhdCBtdWNoLiAKCkkgd2lsbCBpbnZlc3RpZ2F0ZSBob3cgd2VsbCB0aGUgdG9wLWVhcm5lcnMgb2YgdGhlIGxlYWd1ZSBhcmUgcGVyZm9ybWluZyBjb21wYXJlZCB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlLiBJIHdpbGwgdXNlIGluLWdhbWUgc3RhdGlzdGljcyB0byBkZXRlcm1pbmUgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBwbGF5ZXJzIHRvIHNlZSBpZiB0aGV5IGFyZSB3b3J0aCB0aGUgbW9uZXkuCgpgYGB7cn0KbGlicmFyeShyZWFkcikKbGlicmFyeShkcGx5cikKYGBgCgpgYGB7cn0KTkJBMjAyMF8yMDIxU2FsYXJpZXMgPC0gcmVhZF9jc3YoIk5CQTIwMjA6MjAyMVNhbGFyaWVzLmNzdiIpCgpOQkFTdGF0cyA8LSByZWFkX2NzdigiTkJBU3RhdHMuY3N2IikKClN0YXRzZnJvbU5CQSA8LSByZWFkX2NzdigiU3RhdHNmcm9tTkJBLmNzdiIpCgpUb3A1MG9mTkJBIDwtIHJlYWRfY3N2KCJUb3A1MG9mTkJBLmNzdiIpCmBgYAoKYGBge3J9CgpgYGAKCg==</div>
 
 
 

@@ -1,14 +1,34 @@
 ---
 title: "Final Project Report"
-author: "AUTHOR NAME(S)"
-date: "Due: DATE"
+author: "Daniel Seok Lee"
+date: "May 4, 2021"
 output: html_notebook
 ---
 
+How well are the players performing after signing multi-year contracts for millions of dollars?
 
+Over the years, the NBA has been bringing in more revenue. This raises the net worth of teams which allows them to sign better players and bigger contracts. While the average player brings in a good amount of money, a superstar will sign multi-year contracts for millions of dollars. 
 
+In the summer of 2019, an NBA star, named Rudy Gobert, signed a five-year $205 million contract extension with the Utah Jazz. Shaquille O'Neal criticized Gobert's game and claimed that he's not worth that much. 
+
+I will investigate how well the top-earners of the league are performing compared to the rest of the league. I will use in-game statistics to determine the performance of the players to see if they are worth the money.
+
+```{r}
+library(readr)
+library(dplyr)
+```
+
+```{r}
+NBA2020_2021Salaries <- read_csv("NBA2020:2021Salaries.csv")
+
+NBAStats <- read_csv("NBAStats.csv")
+
+StatsfromNBA <- read_csv("StatsfromNBA.csv")
+
+Top50ofNBA <- read_csv("Top50ofNBA.csv")
+```
 
 ```{r}
 
-
 ```
+

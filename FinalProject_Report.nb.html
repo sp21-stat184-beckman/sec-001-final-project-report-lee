@@ -255,68 +255,101 @@ library(dplyr)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkJBMjAyMF8yMDIxU2FsYXJpZXMgPC0gcmVhZF9jc3YoXCJOQkEyMDIwOjIwMjFTYWxhcmllcy5jc3ZcIilcbmBgYCJ9 -->
-<pre class="r"><code>NBA2020_2021Salaries &lt;- read_csv(&quot;NBA2020:2021Salaries.csv&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkJBMjAyMF8yMDIxU2FsYXJpZXMgPC0gcmVhZF9jc3YoXCJOQkEyMDIwOjIwMjFTYWxhcmllcy5jc3ZcIilcblxuTkJBU3RhdHMgPC0gcmVhZF9jc3YoXCJOQkFTdGF0cy5jc3ZcIilcblxuU3RhdHNmcm9tTkJBIDwtIHJlYWRfY3N2KFwiU3RhdHNmcm9tTkJBLmNzdlwiKVxuXG5Ub3A1MG9mTkJBIDwtIHJlYWRfY3N2KFwiVG9wNTBvZk5CQS5jc3ZcIilcbmBgYCJ9 -->
+<pre class="r"><code>NBA2020_2021Salaries &lt;- read_csv(&quot;NBA2020:2021Salaries.csv&quot;)
+
+NBAStats &lt;- read_csv(&quot;NBAStats.csv&quot;)
+
+StatsfromNBA &lt;- read_csv(&quot;StatsfromNBA.csv&quot;)
+
+Top50ofNBA &lt;- read_csv(&quot;Top50ofNBA.csv&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiTWlzc2luZyBjb2x1bW4gbmFtZXMgZmlsbGVkIGluOiAnWDQnIFs0XSwgJ1g1JyBbNV0sICdYNicgWzZdXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICBgI2AgPSBjb2xfZG91YmxlKCksXG4gIFBsYXllciA9IGNvbF9jaGFyYWN0ZXIoKSxcbiAgYDIwMjAvMjFgID0gY29sX2NoYXJhY3RlcigpLFxuICBYNCA9IGNvbF9sb2dpY2FsKCksXG4gIFg1ID0gY29sX2xvZ2ljYWwoKSxcbiAgWDYgPSBjb2xfbG9naWNhbCgpXG4pXG4ifQ== -->
-<pre><code>Missing column names filled in: &#39;X4&#39; [4], &#39;X5&#39; [5], &#39;X6&#39; [6]
-── Column specification ────────────
-cols(
-  `#` = col_double(),
-  Player = col_character(),
-  `2020/21` = col_character(),
-  X4 = col_logical(),
-  X5 = col_logical(),
-  X6 = col_logical()
-)</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkJBU3RhdHMgPC0gcmVhZF9jc3YoXCJOQkFTdGF0cy5jc3ZcIilcbmBgYCJ9 -->
-<pre class="r"><code>NBAStats &lt;- read_csv(&quot;NBAStats.csv&quot;)</code></pre>
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShOQkEyMDIwXzIwMjFTYWxhcmllcylcbmBgYCJ9 -->
+<pre class="r"><code>summary(NBA2020_2021Salaries)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgUGxheWVyID0gY29sX2NoYXJhY3RlcigpLFxuICBQb3MgPSBjb2xfY2hhcmFjdGVyKCksXG4gIFRtID0gY29sX2NoYXJhY3RlcigpXG4pXG7ihLkgVXNlIGBzcGVjKClgIGZvciB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
-<pre><code>
-── Column specification ────────────
-cols(
-  .default = col_double(),
-  Player = col_character(),
-  Pos = col_character(),
-  Tm = col_character()
-)
-ℹ Use `spec()` for the full column specifications.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuU3RhdHNmcm9tTkJBIDwtIHJlYWRfY3N2KFwiU3RhdHNmcm9tTkJBLmNzdlwiKVxuYGBgIn0= -->
-<pre class="r"><code>StatsfromNBA &lt;- read_csv(&quot;StatsfromNBA.csv&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgUGxheWVyID0gY29sX2NoYXJhY3RlcigpXG4pXG7ihLkgVXNlIGBzcGVjKClgIGZvciB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
-<pre><code>
-── Column specification ────────────
-cols(
-  .default = col_double(),
-  Player = col_character()
-)
-ℹ Use `spec()` for the full column specifications.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVG9wNTBvZk5CQSA8LSByZWFkX2NzdihcIlRvcDUwb2ZOQkEuY3N2XCIpXG5gYGAifQ== -->
-<pre class="r"><code>Top50ofNBA &lt;- read_csv(&quot;Top50ofNBA.csv&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG7ilIDilIAgQ29sdW1uIHNwZWNpZmljYXRpb24g4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSAXG5jb2xzKFxuICAuZGVmYXVsdCA9IGNvbF9kb3VibGUoKSxcbiAgUGxheWVyID0gY29sX2NoYXJhY3RlcigpXG4pXG7ihLkgVXNlIGBzcGVjKClgIGZvciB0aGUgZnVsbCBjb2x1bW4gc3BlY2lmaWNhdGlvbnMuXG4ifQ== -->
-<pre><code>
-── Column specification ────────────
-cols(
-  .default = col_double(),
-  Player = col_character()
-)
-ℹ Use `spec()` for the full column specifications.</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICMgICAgICAgICAgICBQbGF5ZXIgICAgICAgICAgICAyMDIxU2FsYXJ5ICAgICAgXG4gTWluLiAgIDogIDEuMCAgIExlbmd0aDo1NzcgICAgICAgICBNaW4uICAgOiAgIDI1MDAwICBcbiAxc3QgUXUuOjE0NS4wICAgQ2xhc3MgOmNoYXJhY3RlciAgIDFzdCBRdS46IDE1MTc5ODEgIFxuIE1lZGlhbiA6Mjg5LjAgICBNb2RlICA6Y2hhcmFjdGVyICAgTWVkaWFuIDogMjg5NTcyMCAgXG4gTWVhbiAgIDoyODcuMSAgICAgICAgICAgICAgICAgICAgICBNZWFuICAgOiA2NzUyMTUwICBcbiAzcmQgUXUuOjQwOS4wICAgICAgICAgICAgICAgICAgICAgIDNyZCBRdS46IDg1MDAwMDAgIFxuIE1heC4gICA6NTc2LjAgICAgICAgICAgICAgICAgICAgICAgTWF4LiAgIDo0MzAwNjM2MiAgXG4ifQ== -->
+<pre><code>       #            Player            2021Salary      
+ Min.   :  1.0   Length:577         Min.   :   25000  
+ 1st Qu.:145.0   Class :character   1st Qu.: 1517981  
+ Median :289.0   Mode  :character   Median : 2895720  
+ Mean   :287.1                      Mean   : 6752150  
+ 3rd Qu.:409.0                      3rd Qu.: 8500000  
+ Max.   :576.0                      Max.   :43006362  </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShOQkFTdGF0cylcbmBgYCJ9 -->
+<pre class="r"><code>summary(NBAStats)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgIFJrICAgICAgICAgICBQbGF5ZXIgICAgICAgICAgICAgIFBvcyAgICAgICAgICAgICAgICAgQWdlICAgICAgIFxuIE1pbi4gICA6ICAxLjAgICBMZW5ndGg6NjQ2ICAgICAgICAgTGVuZ3RoOjY0NiAgICAgICAgIE1pbi4gICA6MTkuMDAgIFxuIDFzdCBRdS46MTI2LjIgICBDbGFzcyA6Y2hhcmFjdGVyICAgQ2xhc3MgOmNoYXJhY3RlciAgIDFzdCBRdS46MjMuMDAgIFxuIE1lZGlhbiA6MjU0LjAgICBNb2RlICA6Y2hhcmFjdGVyICAgTW9kZSAgOmNoYXJhY3RlciAgIE1lZGlhbiA6MjUuMDAgIFxuIE1lYW4gICA6MjU4LjAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1lYW4gICA6MjUuODMgIFxuIDNyZCBRdS46Mzg5LjAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDNyZCBRdS46MjguNzUgIFxuIE1heC4gICA6NTE0LjAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE1heC4gICA6MzcuMDAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgVG0gICAgICAgICAgICAgICAgICBHICAgICAgICAgICAgICAgR1MgICAgICAgICAgICAgIE1QICAgICAgICAgICAgICBGRyAgICAgICBcbiBMZW5ndGg6NjQ2ICAgICAgICAgTWluLiAgIDogMS4wMCAgIE1pbi4gICA6IDAuMDAgICBNaW4uICAgOiAxLjgwICAgTWluLiAgIDogMC4wMCAgXG4gQ2xhc3MgOmNoYXJhY3RlciAgIDFzdCBRdS46MTQuMDAgICAxc3QgUXUuOiAwLjAwICAgMXN0IFF1LjoxMS45MyAgIDFzdCBRdS46IDEuNDAgIFxuIE1vZGUgIDpjaGFyYWN0ZXIgICBNZWRpYW4gOjMxLjAwICAgTWVkaWFuIDogNC4wMCAgIE1lZGlhbiA6MTkuMTUgICBNZWRpYW4gOiAyLjYwICBcbiAgICAgICAgICAgICAgICAgICAgTWVhbiAgIDoyOC40NyAgIE1lYW4gICA6MTMuMDIgICBNZWFuICAgOjE5LjMzICAgTWVhbiAgIDogMy4xNiAgXG4gICAgICAgICAgICAgICAgICAgIDNyZCBRdS46NDMuMDAgICAzcmQgUXUuOjI0LjAwICAgM3JkIFF1LjoyNy4zOCAgIDNyZCBRdS46IDQuNDAgIFxuICAgICAgICAgICAgICAgICAgICBNYXguICAgOjUzLjAwICAgTWF4LiAgIDo1Mi4wMCAgIE1heC4gICA6MzcuMzAgICBNYXguICAgOjExLjAwICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gICAgICBGR0EgICAgICAgICAgICAgIEZHJSAgICAgICAgICAgICAgIDNQICAgICAgICAgICAgICAzUEEgICAgICAgICAgICAgIDNQJSAgICAgICAgXG4gTWluLiAgIDogMC4wMDAgICBNaW4uICAgOjAuMDAwMCAgIE1pbi4gICA6MC4wMDAwICAgTWluLiAgIDogMC4wMDAgICBNaW4uICAgOjAuMDAwMCAgXG4gMXN0IFF1LjogMy4zMDAgICAxc3QgUXUuOjAuMzkwMCAgIDFzdCBRdS46MC4yMDAwICAgMXN0IFF1LjogMC45MDAgICAxc3QgUXUuOjAuMjY0NSAgXG4gTWVkaWFuIDogNS44MDAgICBNZWRpYW4gOjAuNDM3MCAgIE1lZGlhbiA6MC43MDAwICAgTWVkaWFuIDogMi4yMDAgICBNZWRpYW4gOjAuMzQyMCAgXG4gTWVhbiAgIDogNi45MzIgICBNZWFuICAgOjAuNDM4NSAgIE1lYW4gICA6MC45NTUxICAgTWVhbiAgIDogMi43MDQgICBNZWFuICAgOjAuMzEyNiAgXG4gM3JkIFF1LjogOS42NzUgICAzcmQgUXUuOjAuNDk0MCAgIDNyZCBRdS46MS41MDAwICAgM3JkIFF1LjogNC4yMDAgICAzcmQgUXUuOjAuMzkwNSAgXG4gTWF4LiAgIDoyMi41MDAgICBNYXguICAgOjEuMDAwMCAgIE1heC4gICA6NC43MDAwICAgTWF4LiAgIDoxMS41MDAgICBNYXguICAgOjEuMDAwMCAgXG4gICAgICAgICAgICAgICAgICBOQSdzICAgOjMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBOQSdzICAgOjM5ICAgICAgXG4gICAgICAgMlAgICAgICAgICAgICAgMlBBICAgICAgICAgICAgICAyUCUgICAgICAgICAgICAgIGVGRyUgICAgICAgICAgICAgIEZUICAgICAgICBcbiBNaW4uICAgOjAuMDAwICAgTWluLiAgIDogMC4wMDAgICBNaW4uICAgOjAuMDAwMCAgIE1pbi4gICA6MC4wMDAwICAgTWluLiAgIDogMC4wMDAgIFxuIDFzdCBRdS46MC44MDAgICAxc3QgUXUuOiAxLjYwMCAgIDFzdCBRdS46MC40NDQwICAgMXN0IFF1LjowLjQ3MTAgICAxc3QgUXUuOiAwLjQwMCAgXG4gTWVkaWFuIDoxLjYwMCAgIE1lZGlhbiA6IDMuMjAwICAgTWVkaWFuIDowLjUwOTAgICBNZWRpYW4gOjAuNTE5MCAgIE1lZGlhbiA6IDAuOTAwICBcbiBNZWFuICAgOjIuMjA1ICAgTWVhbiAgIDogNC4yMzEgICBNZWFuICAgOjAuNTA0OSAgIE1lYW4gICA6MC41MDM4ICAgTWVhbiAgIDogMS4zNDIgIFxuIDNyZCBRdS46My4yMDAgICAzcmQgUXUuOiA1LjkwMCAgIDNyZCBRdS46MC41NzIwICAgM3JkIFF1LjowLjU2NzAgICAzcmQgUXUuOiAxLjgwMCAgXG4gTWF4LiAgIDo5LjgwMCAgIE1heC4gICA6MTYuMDAwICAgTWF4LiAgIDoxLjAwMDAgICBNYXguICAgOjEuMDAwMCAgIE1heC4gICA6MTAuMTAwICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBOQSdzICAgOjEwICAgICAgIE5BJ3MgICA6MyAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgRlRBICAgICAgICAgICAgICBGVCUgICAgICAgICAgICAgIE9SQiAgICAgICAgICAgICAgRFJCICAgICAgICAgICAgICBUUkIgICAgICAgIFxuIE1pbi4gICA6IDAuMDAwICAgTWluLiAgIDowLjAwMDAgICBNaW4uICAgOjAuMDAwMCAgIE1pbi4gICA6IDAuMDAwICAgTWluLiAgIDogMC4wMDAgIFxuIDFzdCBRdS46IDAuNjAwICAgMXN0IFF1LjowLjY2NzAgICAxc3QgUXUuOjAuMzAwMCAgIDFzdCBRdS46IDEuNDAwICAgMXN0IFF1LjogMS45MDAgIFxuIE1lZGlhbiA6IDEuMzAwICAgTWVkaWFuIDowLjc3NDUgICBNZWRpYW4gOjAuNjAwMCAgIE1lZGlhbiA6IDIuNDAwICAgTWVkaWFuIDogMy4xMDAgIFxuIE1lYW4gICA6IDEuNzQ3ICAgTWVhbiAgIDowLjc0NjkgICBNZWFuICAgOjAuNzk5NyAgIE1lYW4gICA6IDIuNzgyICAgTWVhbiAgIDogMy41ODIgIFxuIDNyZCBRdS46IDIuMzAwICAgM3JkIFF1LjowLjg1MDAgICAzcmQgUXUuOjEuMDAwMCAgIDNyZCBRdS46IDMuNzAwICAgM3JkIFF1LjogNC44MDAgIFxuIE1heC4gICA6MTEuODAwICAgTWF4LiAgIDoxLjAwMDAgICBNYXguICAgOjQuODAwMCAgIE1heC4gICA6MTAuMDAwICAgTWF4LiAgIDoxNC4yMDAgIFxuICAgICAgICAgICAgICAgICAgTkEncyAgIDozNiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgQVNUICAgICAgICAgICAgICBTVEwgICAgICAgICAgICAgIEJMSyAgICAgICAgICAgICAgVE9WICAgICAgICAgICAgICBQRiAgICAgICBcbiBNaW4uICAgOiAwLjAwMCAgIE1pbi4gICA6MC4wMDAwICAgTWluLiAgIDowLjAwMDAgICBNaW4uICAgOjAuMDAwICAgTWluLiAgIDowLjAwMCAgXG4gMXN0IFF1LjogMC43MDAgICAxc3QgUXUuOjAuMzAwMCAgIDFzdCBRdS46MC4xMDAwICAgMXN0IFF1LjowLjUwMCAgIDFzdCBRdS46MS4xMDAgIFxuIE1lZGlhbiA6IDEuNDAwICAgTWVkaWFuIDowLjYwMDAgICBNZWRpYW4gOjAuMzAwMCAgIE1lZGlhbiA6MC45MDAgICBNZWRpYW4gOjEuNjAwICBcbiBNZWFuICAgOiAxLjkzOSAgIE1lYW4gICA6MC42MDU5ICAgTWVhbiAgIDowLjQxNTUgICBNZWFuICAgOjEuMDkyICAgTWVhbiAgIDoxLjYyNyAgXG4gM3JkIFF1LjogMi41MDAgICAzcmQgUXUuOjAuOTAwMCAgIDNyZCBRdS46MC42MDAwICAgM3JkIFF1LjoxLjUwMCAgIDNyZCBRdS46Mi4xMDAgIFxuIE1heC4gICA6MTEuMDAwICAgTWF4LiAgIDoyLjAwMDAgICBNYXguICAgOjMuNTAwMCAgIE1heC4gICA6NS4wMDAgICBNYXguICAgOjQuNTAwICBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXG4gICAgICBQVFMgICAgICAgIFxuIE1pbi4gICA6IDAuMDAwICBcbiAxc3QgUXUuOiAzLjgwMCAgXG4gTWVkaWFuIDogNi45NTAgIFxuIE1lYW4gICA6IDguNjE3ICBcbiAzcmQgUXUuOjEyLjAwMCAgXG4gTWF4LiAgIDozMS4yMDAgIFxuICAgICAgICAgICAgICAgICBcbiJ9 -->
+<pre><code>       Rk           Player              Pos                 Age       
+ Min.   :  1.0   Length:646         Length:646         Min.   :19.00  
+ 1st Qu.:126.2   Class :character   Class :character   1st Qu.:23.00  
+ Median :254.0   Mode  :character   Mode  :character   Median :25.00  
+ Mean   :258.0                                         Mean   :25.83  
+ 3rd Qu.:389.0                                         3rd Qu.:28.75  
+ Max.   :514.0                                         Max.   :37.00  
+                                                                      
+      Tm                  G               GS              MP              FG       
+ Length:646         Min.   : 1.00   Min.   : 0.00   Min.   : 1.80   Min.   : 0.00  
+ Class :character   1st Qu.:14.00   1st Qu.: 0.00   1st Qu.:11.93   1st Qu.: 1.40  
+ Mode  :character   Median :31.00   Median : 4.00   Median :19.15   Median : 2.60  
+                    Mean   :28.47   Mean   :13.02   Mean   :19.33   Mean   : 3.16  
+                    3rd Qu.:43.00   3rd Qu.:24.00   3rd Qu.:27.38   3rd Qu.: 4.40  
+                    Max.   :53.00   Max.   :52.00   Max.   :37.30   Max.   :11.00  
+                                                                                   
+      FGA              FG%               3P              3PA              3P%        
+ Min.   : 0.000   Min.   :0.0000   Min.   :0.0000   Min.   : 0.000   Min.   :0.0000  
+ 1st Qu.: 3.300   1st Qu.:0.3900   1st Qu.:0.2000   1st Qu.: 0.900   1st Qu.:0.2645  
+ Median : 5.800   Median :0.4370   Median :0.7000   Median : 2.200   Median :0.3420  
+ Mean   : 6.932   Mean   :0.4385   Mean   :0.9551   Mean   : 2.704   Mean   :0.3126  
+ 3rd Qu.: 9.675   3rd Qu.:0.4940   3rd Qu.:1.5000   3rd Qu.: 4.200   3rd Qu.:0.3905  
+ Max.   :22.500   Max.   :1.0000   Max.   :4.7000   Max.   :11.500   Max.   :1.0000  
+                  NA&#39;s   :3                                          NA&#39;s   :39      
+       2P             2PA              2P%              eFG%              FT        
+ Min.   :0.000   Min.   : 0.000   Min.   :0.0000   Min.   :0.0000   Min.   : 0.000  
+ 1st Qu.:0.800   1st Qu.: 1.600   1st Qu.:0.4440   1st Qu.:0.4710   1st Qu.: 0.400  
+ Median :1.600   Median : 3.200   Median :0.5090   Median :0.5190   Median : 0.900  
+ Mean   :2.205   Mean   : 4.231   Mean   :0.5049   Mean   :0.5038   Mean   : 1.342  
+ 3rd Qu.:3.200   3rd Qu.: 5.900   3rd Qu.:0.5720   3rd Qu.:0.5670   3rd Qu.: 1.800  
+ Max.   :9.800   Max.   :16.000   Max.   :1.0000   Max.   :1.0000   Max.   :10.100  
+                                  NA&#39;s   :10       NA&#39;s   :3                        
+      FTA              FT%              ORB              DRB              TRB        
+ Min.   : 0.000   Min.   :0.0000   Min.   :0.0000   Min.   : 0.000   Min.   : 0.000  
+ 1st Qu.: 0.600   1st Qu.:0.6670   1st Qu.:0.3000   1st Qu.: 1.400   1st Qu.: 1.900  
+ Median : 1.300   Median :0.7745   Median :0.6000   Median : 2.400   Median : 3.100  
+ Mean   : 1.747   Mean   :0.7469   Mean   :0.7997   Mean   : 2.782   Mean   : 3.582  
+ 3rd Qu.: 2.300   3rd Qu.:0.8500   3rd Qu.:1.0000   3rd Qu.: 3.700   3rd Qu.: 4.800  
+ Max.   :11.800   Max.   :1.0000   Max.   :4.8000   Max.   :10.000   Max.   :14.200  
+                  NA&#39;s   :36                                                         
+      AST              STL              BLK              TOV              PF       
+ Min.   : 0.000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000   Min.   :0.000  
+ 1st Qu.: 0.700   1st Qu.:0.3000   1st Qu.:0.1000   1st Qu.:0.500   1st Qu.:1.100  
+ Median : 1.400   Median :0.6000   Median :0.3000   Median :0.900   Median :1.600  
+ Mean   : 1.939   Mean   :0.6059   Mean   :0.4155   Mean   :1.092   Mean   :1.627  
+ 3rd Qu.: 2.500   3rd Qu.:0.9000   3rd Qu.:0.6000   3rd Qu.:1.500   3rd Qu.:2.100  
+ Max.   :11.000   Max.   :2.0000   Max.   :3.5000   Max.   :5.000   Max.   :4.500  
+                                                                                   
+      PTS        
+ Min.   : 0.000  
+ 1st Qu.: 3.800  
+ Median : 6.950  
+ Mean   : 8.617  
+ 3rd Qu.:12.000  
+ Max.   :31.200  
+                 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBSZXBvcnQiCmF1dGhvcjogIkRhbmllbCBTZW9rIExlZSIKZGF0ZTogIk1heSA0LCAyMDIxIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpIb3cgd2VsbCBhcmUgdGhlIHBsYXllcnMgcGVyZm9ybWluZyBhZnRlciBzaWduaW5nIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzPwoKT3ZlciB0aGUgeWVhcnMsIHRoZSBOQkEgaGFzIGJlZW4gYnJpbmdpbmcgaW4gbW9yZSByZXZlbnVlLiBUaGlzIHJhaXNlcyB0aGUgbmV0IHdvcnRoIG9mIHRlYW1zIHdoaWNoIGFsbG93cyB0aGVtIHRvIHNpZ24gYmV0dGVyIHBsYXllcnMgYW5kIGJpZ2dlciBjb250cmFjdHMuIFdoaWxlIHRoZSBhdmVyYWdlIHBsYXllciBicmluZ3MgaW4gYSBnb29kIGFtb3VudCBvZiBtb25leSwgYSBzdXBlcnN0YXIgd2lsbCBzaWduIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzLiAKCkluIHRoZSBzdW1tZXIgb2YgMjAxOSwgYW4gTkJBIHN0YXIsIG5hbWVkIFJ1ZHkgR29iZXJ0LCBzaWduZWQgYSBmaXZlLXllYXIgJDIwNSBtaWxsaW9uIGNvbnRyYWN0IGV4dGVuc2lvbiB3aXRoIHRoZSBVdGFoIEphenouIFNoYXF1aWxsZSBPJ05lYWwgY3JpdGljaXplZCBHb2JlcnQncyBnYW1lIGFuZCBjbGFpbWVkIHRoYXQgaGUncyBub3Qgd29ydGggdGhhdCBtdWNoLiAKCkkgd2lsbCBpbnZlc3RpZ2F0ZSBob3cgd2VsbCB0aGUgdG9wLWVhcm5lcnMgb2YgdGhlIGxlYWd1ZSBhcmUgcGVyZm9ybWluZyBjb21wYXJlZCB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlLiBJIHdpbGwgdXNlIGluLWdhbWUgc3RhdGlzdGljcyB0byBkZXRlcm1pbmUgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBwbGF5ZXJzIHRvIHNlZSBpZiB0aGV5IGFyZSB3b3J0aCB0aGUgbW9uZXkuCgpgYGB7cn0KbGlicmFyeShyZWFkcikKbGlicmFyeShkcGx5cikKYGBgCgpgYGB7cn0KTkJBMjAyMF8yMDIxU2FsYXJpZXMgPC0gcmVhZF9jc3YoIk5CQTIwMjA6MjAyMVNhbGFyaWVzLmNzdiIpCgpOQkFTdGF0cyA8LSByZWFkX2NzdigiTkJBU3RhdHMuY3N2IikKClN0YXRzZnJvbU5CQSA8LSByZWFkX2NzdigiU3RhdHNmcm9tTkJBLmNzdiIpCgpUb3A1MG9mTkJBIDwtIHJlYWRfY3N2KCJUb3A1MG9mTkJBLmNzdiIpCmBgYAoKYGBge3J9CgpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBSZXBvcnQiCmF1dGhvcjogIkRhbmllbCBTZW9rIExlZSIKZGF0ZTogIk1heSA0LCAyMDIxIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpIb3cgd2VsbCBhcmUgdGhlIHBsYXllcnMgcGVyZm9ybWluZyBhZnRlciBzaWduaW5nIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzPwoKT3ZlciB0aGUgeWVhcnMsIHRoZSBOQkEgaGFzIGJlZW4gYnJpbmdpbmcgaW4gbW9yZSByZXZlbnVlLiBUaGlzIHJhaXNlcyB0aGUgbmV0IHdvcnRoIG9mIHRlYW1zIHdoaWNoIGFsbG93cyB0aGVtIHRvIHNpZ24gYmV0dGVyIHBsYXllcnMgYW5kIGJpZ2dlciBjb250cmFjdHMuIFdoaWxlIHRoZSBhdmVyYWdlIHBsYXllciBicmluZ3MgaW4gYSBnb29kIGFtb3VudCBvZiBtb25leSwgYSBzdXBlcnN0YXIgd2lsbCBzaWduIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzLiAKCkluIHRoZSBzdW1tZXIgb2YgMjAxOSwgYW4gTkJBIHN0YXIsIG5hbWVkIFJ1ZHkgR29iZXJ0LCBzaWduZWQgYSBmaXZlLXllYXIgJDIwNSBtaWxsaW9uIGNvbnRyYWN0IGV4dGVuc2lvbiB3aXRoIHRoZSBVdGFoIEphenouIFNoYXF1aWxsZSBPJ05lYWwgY3JpdGljaXplZCBHb2JlcnQncyBnYW1lIGFuZCBjbGFpbWVkIHRoYXQgaGUncyBub3Qgd29ydGggdGhhdCBtdWNoLiAKCkkgd2lsbCBpbnZlc3RpZ2F0ZSBob3cgd2VsbCB0aGUgdG9wLWVhcm5lcnMgb2YgdGhlIGxlYWd1ZSBhcmUgcGVyZm9ybWluZyBjb21wYXJlZCB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlLiBJIHdpbGwgdXNlIGluLWdhbWUgc3RhdGlzdGljcyB0byBkZXRlcm1pbmUgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBwbGF5ZXJzIHRvIHNlZSBpZiB0aGV5IGFyZSB3b3J0aCB0aGUgbW9uZXkuCgpgYGB7cn0KbGlicmFyeShyZWFkcikKbGlicmFyeShkcGx5cikKYGBgCgpgYGB7cn0KTkJBMjAyMF8yMDIxU2FsYXJpZXMgPC0gcmVhZF9jc3YoIk5CQTIwMjA6MjAyMVNhbGFyaWVzLmNzdiIpCgpOQkFTdGF0cyA8LSByZWFkX2NzdigiTkJBU3RhdHMuY3N2IikKClN0YXRzZnJvbU5CQSA8LSByZWFkX2NzdigiU3RhdHNmcm9tTkJBLmNzdiIpCgpUb3A1MG9mTkJBIDwtIHJlYWRfY3N2KCJUb3A1MG9mTkJBLmNzdiIpCmBgYAoKYGBge3J9CnN1bW1hcnkoTkJBMjAyMF8yMDIxU2FsYXJpZXMpCmBgYAoKYGBge3J9CnN1bW1hcnkoTkJBU3RhdHMpCmBgYAoK</div>
 
 
 

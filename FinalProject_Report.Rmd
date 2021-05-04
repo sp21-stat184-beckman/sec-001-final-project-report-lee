@@ -29,6 +29,10 @@ Top50ofNBA <- read_csv("Top50ofNBA.csv")
 ```
 
 ```{r}
+summary(NBA2020_2021Salaries)
+```
 
+```{r}
+summary(NBAStats)
 ```
 

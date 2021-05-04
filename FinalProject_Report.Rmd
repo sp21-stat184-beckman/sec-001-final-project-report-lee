@@ -39,15 +39,35 @@ summary(NBA2020_2021Salaries)
 #Summary
 summary(NBAStats)
 ```
-
+```{r}
+NBA2020_2021Salaries %>%
+  summarise(avgsal = mean(Salary, na.rm = TRUE))
+```
+```{r}
+NBAStats %>%
+  summarise(avgpts = mean(PTS, na.rm = TRUE),
+            avgast = mean(AST, na.rm = TRUE),
+            avgtrb = mean(TRB, na.rm = TRUE))
+```
 From the summarizes of these two tables, we can see that the average player is paid $6,752,150 for the season. The average player gets 8.6 points, 1.9 assists, and 3.6 rebounds.
 
 In the middle of the NBA season, the league holds an All-Star Break. One of the events and the biggest one is the All-Star game. This game involves about 25 of the top players of the league. So let's see how the top 25 compare to the rest of the league statistically.
 
 ```{r}
-Top25ofNBA <-
+#Joining stats and salary of top 50 players
+Top50ofNBASal <-
   Top50ofNBA %>%
   select(Player, PTS, REB, AST, EFF) %>%
-  left_join(NBA2020_2021Salaries %>% select(Player, Salary), by "Player")
+  left_join(NBA2020_2021Salaries %>% select(Player, Salary), by = c("Player" = "Player"))
+
+# %>% arrange(desc(PTS))
+
+#Average of top 50
+Top50ofNBASal %>%
+  summarise(avgpts = mean(PTS, na.rm = TRUE),
+            avgast = mean(AST, na.rm = TRUE),
+            avgreb = mean(REB, na.rm = TRUE),
+            avgeff = mean(EFF, na.rm = TRUE),
+            avgsal = mean(Salary, na.rm = TRUE))
 ```
 

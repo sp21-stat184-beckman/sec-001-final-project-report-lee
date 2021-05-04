@@ -349,27 +349,68 @@ summary(NBA2020_2021Salaries)</code></pre>
                  </code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkJBMjAyMF8yMDIxU2FsYXJpZXMgJT4lXG4gIHN1bW1hcmlzZShhdmdzYWwgPSBtZWFuKFNhbGFyeSwgbmEucm0gPSBUUlVFKSlcbmBgYCJ9 -->
+<pre class="r"><code>NBA2020_2021Salaries %&gt;%
+  summarise(avgsal = mean(Salary, na.rm = TRUE))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIHggMSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUExMVBTdzZDTUJBZGtHSWs4Wk40RHRqb3dxMko4UUJHRTF4V1JDWFdGcUYrbGg3SHJVZndNRjREbkpJMklXMHluWm5YOTZielZvdDRFc1FCQUhUQXcrZ1FMSUZzMXN0d0J1QzUyRGo0MEZQNWlhUnhBd0FNVko1dnY3L3J4MzliUk1McEpTMnhHTFZBbjk2UEpXVVd0VmVJUjJUb2ZRejNoVmVOeDU2Wk1GcmFNNE05bFRRNkZLakhycklrWFpITFRIQVV1V3ByWW9tZHdnS0dONjQyMllmSjZjYlA0VlI5b04yQzNzN1IwYXJWbDI2dFJ4RmpOdVhIaktkbWQwWjNLZFBOQUIwM2hxTzh5TGcwVGhBdEl5a2tOYndnRWN3Z2pUZW8vZ3JySnVlc0FRQUEifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["avgsal"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"6752150"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuTkJBU3RhdHMgJT4lXG4gIHN1bW1hcmlzZShhdmdwdHMgPSBtZWFuKFBUUywgbmEucm0gPSBUUlVFKSxcbiAgICAgICAgICAgIGF2Z2FzdCA9IG1lYW4oQVNULCBuYS5ybSA9IFRSVUUpLFxuICAgICAgICAgICAgYXZndHJiID0gbWVhbihUUkIsIG5hLnJtID0gVFJVRSkpXG5gYGAifQ== -->
+<pre class="r"><code>NBAStats %&gt;%
+  summarise(avgpts = mean(PTS, na.rm = TRUE),
+            avgast = mean(AST, na.rm = TRUE),
+            avgtrb = mean(TRB, na.rm = TRUE))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6Mywic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIHggMyJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERtaXVCaVlHQmdabUFCWW1aV0lKT0JOVFRFVGRlQ2dZR0ZDY2hoQkVwd2d1Z0tvQ0poc0VvR0JqNlFnSU9pOWJXVEFUenJZSHo3LzJ4NnMxTHFpK0R5UE11RjdueC9WWWhtRUd0ZVltNXFNWkFoQUxVV0pNaVdXSlplVUZLTXhFc3NMa0hpbFJRbG9SbkRXWlJmcmdjemloZUltUnFBeEg4Z1FMY3ZPU2V4R0dZZlRKQXJKYkVrVVMrdENLZ2Z5UHVIcG9VOXY2QWtNejhQcUlrSjVHTldOTTJNUldnQy9LVjVJSmVrNkNabmxPWmw2NXFDTEFCTFF3QXZsTTJJeEdhR1dNbjBIMm9VSzh5enFYbnBtWG1wTUxmbkpDYWw1a0E1ZkVBZmd6MnNWMUNVbVFjTEhTNmdhTEZlU1g1Sklrd2RWM0orRGt3RTdEZUdmd0NCUGpTZDZBRUFBQT09In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["avgpts"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["avgast"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["avgtrb"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"8.616873","2":"1.939009","3":"3.581579"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>From the summarizes of these two tables, we can see that the average player is paid $6,752,150 for the season. The average player gets 8.6 points, 1.9 assists, and 3.6 rebounds.</p>
 <p>In the middle of the NBA season, the league holds an All-Star Break. One of the events and the biggest one is the All-Star game. This game involves about 25 of the top players of the league. So let’s see how the top 25 compare to the rest of the league statistically.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVG9wMjVvZk5CQSA8LVxuICBUb3A1MG9mTkJBICU+JVxuICBzZWxlY3QoUGxheWVyLCBQVFMsIFJFQiwgQVNULCBFRkYpICU+JVxuICBsZWZ0X2pvaW4oTkJBMjAyMF8yMDIxU2FsYXJpZXMgJT4lIHNlbGVjdChQbGF5ZXIsIFNhbGFyeSksIGJ5IFwiUGxheWVyXCIpXG5gYGAifQ== -->
-<pre class="r"><code>Top25ofNBA &lt;-
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0pvaW5pbmcgc3RhdHMgYW5kIHNhbGFyeSBvZiB0b3AgNTAgcGxheWVyc1xuVG9wNTBvZk5CQVNhbCA8LVxuICBUb3A1MG9mTkJBICU+JVxuICBzZWxlY3QoUGxheWVyLCBQVFMsIFJFQiwgQVNULCBFRkYpICU+JVxuICBsZWZ0X2pvaW4oTkJBMjAyMF8yMDIxU2FsYXJpZXMgJT4lIHNlbGVjdChQbGF5ZXIsIFNhbGFyeSksIGJ5ID0gYyhcIlBsYXllclwiID0gXCJQbGF5ZXJcIikpXG5cbiMgJT4lIGFycmFuZ2UoZGVzYyhQVFMpKVxuXG4jQXZlcmFnZSBvZiB0b3AgMjVcblRvcDUwb2ZOQkFTYWwgJT4lXG4gIHN1bW1hcmlzZShhdmdwdHMgPSBtZWFuKFBUUywgbmEucm0gPSBUUlVFKSxcbiAgICAgICAgICAgIGF2Z2FzdCA9IG1lYW4oQVNULCBuYS5ybSA9IFRSVUUpLFxuICAgICAgICAgICAgYXZncmViID0gbWVhbihSRUIsIG5hLnJtID0gVFJVRSksXG4gICAgICAgICAgICBhdmdlZmYgPSBtZWFuKEVGRiwgbmEucm0gPSBUUlVFKSxcbiAgICAgICAgICAgIGF2Z3NhbCA9IG1lYW4oU2FsYXJ5LCBuYS5ybSA9IFRSVUUpKVxuYGBgIn0= -->
+<pre class="r"><code>#Joining stats and salary of top 50 players
+Top50ofNBASal &lt;-
   Top50ofNBA %&gt;%
   select(Player, PTS, REB, AST, EFF) %&gt;%
-  left_join(NBA2020_2021Salaries %&gt;% select(Player, Salary), by &quot;Player&quot;)</code></pre>
+  left_join(NBA2020_2021Salaries %&gt;% select(Player, Salary), by = c(&quot;Player&quot; = &quot;Player&quot;))
+
+# %&gt;% arrange(desc(PTS))
+
+#Average of top 25
+Top50ofNBASal %&gt;%
+  summarise(avgpts = mean(PTS, na.rm = TRUE),
+            avgast = mean(AST, na.rm = TRUE),
+            avgreb = mean(REB, na.rm = TRUE),
+            avgeff = mean(EFF, na.rm = TRUE),
+            avgsal = mean(Salary, na.rm = TRUE))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IHVuZXhwZWN0ZWQgc3RyaW5nIGNvbnN0YW50IGluOlxuXCIgIHNlbGVjdChQbGF5ZXIsIFBUUywgUkVCLCBBU1QsIEVGRikgJT4lXG4gIGxlZnRfam9pbihOQkEyMDIwXzIwMjFTYWxhcmllcyAlPiUgc2VsZWN0KFBsYXllciwgU2FsYXJ5KSwgYnkgXCJQbGF5ZXJcIlwiXG4ifQ== -->
-<pre><code>Error: unexpected string constant in:
-&quot;  select(Player, PTS, REB, AST, EFF) %&gt;%
-  left_join(NBA2020_2021Salaries %&gt;% select(Player, Salary), by &quot;Player&quot;&quot;</code></pre>
-<!-- rnb-output-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6NSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIHggNSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERtaXVCaVlHQmdabUFCWW1aV0lKT0JOVFRFVGRlQ2dZR0ZDY2hoQkVwd2d1Z0tvQ0poa0N3UTg0RUVITXprZGdTK2JwV0g4MFZtTDMwYy9QMDhuQytoY0FRb0VvSlFmNEFCQ3NCOHg1SWJmRjVGSDBMUUxHTE5TOHhOTFFZeUJNQ1dRUVRaRXN2U0MwcUtrWGlKeFNWSXZLTFVKQ1JlYWxvYUVxODRNUWZOQ3M2aS9ISTltRFc4UU16VUFDVCtBd0c2VzVKekVvdGhib0VKY3FVa2xpVHFwUlVCOVFONS85QzBzT2NYbEdUbTV3RTFNY0ZDQzFrell4R2FBSDlwSHNnbEtickpHYVY1MmJyR0lBdkEwaERBQzJVeklyRlpJVll5L1VjUHBOUzg5TXk4VkpqYmN4S1RVbk9nSEQ2Z2o4RWUxaXNveXN5RGhSd1hVTFJZcnlTL0pCR21qaXM1UHdjbUF2WWJ3ejhBRTcrdHlDUUNBQUE9In0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["avgpts"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["avgast"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["avgreb"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["avgeff"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["avgsal"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"22.12","2":"5.152","3":"6.032","4":"22.75","5":"21856485"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBSZXBvcnQiCmF1dGhvcjogIkRhbmllbCBTZW9rIExlZSIKZGF0ZTogIk1heSA0LCAyMDIxIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpIb3cgd2VsbCBhcmUgdGhlIHBsYXllcnMgcGVyZm9ybWluZyBhZnRlciBzaWduaW5nIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzPwoKT3ZlciB0aGUgeWVhcnMsIHRoZSBOQkEgaGFzIGJlZW4gYnJpbmdpbmcgaW4gbW9yZSByZXZlbnVlLiBUaGlzIHJhaXNlcyB0aGUgbmV0IHdvcnRoIG9mIHRlYW1zIHdoaWNoIGFsbG93cyB0aGVtIHRvIHNpZ24gYmV0dGVyIHBsYXllcnMgYW5kIGJpZ2dlciBjb250cmFjdHMuIFdoaWxlIHRoZSBhdmVyYWdlIHBsYXllciBicmluZ3MgaW4gYSBnb29kIGFtb3VudCBvZiBtb25leSwgYSBzdXBlcnN0YXIgd2lsbCBzaWduIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzLiAKCkluIHRoZSBzdW1tZXIgb2YgMjAxOSwgYW4gTkJBIHN0YXIsIG5hbWVkIFJ1ZHkgR29iZXJ0LCBzaWduZWQgYSBmaXZlLXllYXIgJDIwNSBtaWxsaW9uIGNvbnRyYWN0IGV4dGVuc2lvbiB3aXRoIHRoZSBVdGFoIEphenouIFNoYXF1aWxsZSBPJ05lYWwgY3JpdGljaXplZCBHb2JlcnQncyBnYW1lIGFuZCBjbGFpbWVkIHRoYXQgaGUncyBub3Qgd29ydGggdGhhdCBtdWNoLiAKCkkgd2lsbCBpbnZlc3RpZ2F0ZSBob3cgd2VsbCB0aGUgdG9wLWVhcm5lcnMgb2YgdGhlIGxlYWd1ZSBhcmUgcGVyZm9ybWluZyBjb21wYXJlZCB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlLiBJIHdpbGwgdXNlIGluLWdhbWUgc3RhdGlzdGljcyB0byBkZXRlcm1pbmUgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBwbGF5ZXJzIHRvIHNlZSBpZiB0aGV5IGFyZSB3b3J0aCB0aGUgbW9uZXkuCgpgYGB7cn0KI1NldCB1cApsaWJyYXJ5KHJlYWRyKQpsaWJyYXJ5KGRwbHlyKQpgYGAKCmBgYHtyfQojUmVhZGluZyBpbiBkYXRhIGZpbGVzCk5CQTIwMjBfMjAyMVNhbGFyaWVzIDwtIHJlYWRfY3N2KCJOQkEyMDIwOjIwMjFTYWxhcmllcy5jc3YiKQoKTkJBU3RhdHMgPC0gcmVhZF9jc3YoIk5CQVN0YXRzLmNzdiIpCgpTdGF0c2Zyb21OQkEgPC0gcmVhZF9jc3YoIlN0YXRzZnJvbU5CQS5jc3YiKQoKVG9wNTBvZk5CQSA8LSByZWFkX2NzdigiVG9wNTBvZk5CQS5jc3YiKQpgYGAKCmBgYHtyfQojU3VtbWFyeQpzdW1tYXJ5KE5CQTIwMjBfMjAyMVNhbGFyaWVzKQpgYGAKCmBgYHtyfQojU3VtbWFyeQpzdW1tYXJ5KE5CQVN0YXRzKQpgYGAKCkZyb20gdGhlIHN1bW1hcml6ZXMgb2YgdGhlc2UgdHdvIHRhYmxlcywgd2UgY2FuIHNlZSB0aGF0IHRoZSBhdmVyYWdlIHBsYXllciBpcyBwYWlkICQ2LDc1MiwxNTAgZm9yIHRoZSBzZWFzb24uIFRoZSBhdmVyYWdlIHBsYXllciBnZXRzIDguNiBwb2ludHMsIDEuOSBhc3Npc3RzLCBhbmQgMy42IHJlYm91bmRzLgoKSW4gdGhlIG1pZGRsZSBvZiB0aGUgTkJBIHNlYXNvbiwgdGhlIGxlYWd1ZSBob2xkcyBhbiBBbGwtU3RhciBCcmVhay4gT25lIG9mIHRoZSBldmVudHMgYW5kIHRoZSBiaWdnZXN0IG9uZSBpcyB0aGUgQWxsLVN0YXIgZ2FtZS4gVGhpcyBnYW1lIGludm9sdmVzIGFib3V0IDI1IG9mIHRoZSB0b3AgcGxheWVycyBvZiB0aGUgbGVhZ3VlLiBTbyBsZXQncyBzZWUgaG93IHRoZSB0b3AgMjUgY29tcGFyZSB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlIHN0YXRpc3RpY2FsbHkuCgpgYGB7cn0KVG9wMjVvZk5CQSA8LQogIFRvcDUwb2ZOQkEgJT4lCiAgc2VsZWN0KFBsYXllciwgUFRTLCBSRUIsIEFTVCwgRUZGKSAlPiUKICBsZWZ0X2pvaW4oTkJBMjAyMF8yMDIxU2FsYXJpZXMgJT4lIHNlbGVjdChQbGF5ZXIsIFNhbGFyeSksIGJ5ICJQbGF5ZXIiKQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRmluYWwgUHJvamVjdCBSZXBvcnQiCmF1dGhvcjogIkRhbmllbCBTZW9rIExlZSIKZGF0ZTogIk1heSA0LCAyMDIxIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpIb3cgd2VsbCBhcmUgdGhlIHBsYXllcnMgcGVyZm9ybWluZyBhZnRlciBzaWduaW5nIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzPwoKT3ZlciB0aGUgeWVhcnMsIHRoZSBOQkEgaGFzIGJlZW4gYnJpbmdpbmcgaW4gbW9yZSByZXZlbnVlLiBUaGlzIHJhaXNlcyB0aGUgbmV0IHdvcnRoIG9mIHRlYW1zIHdoaWNoIGFsbG93cyB0aGVtIHRvIHNpZ24gYmV0dGVyIHBsYXllcnMgYW5kIGJpZ2dlciBjb250cmFjdHMuIFdoaWxlIHRoZSBhdmVyYWdlIHBsYXllciBicmluZ3MgaW4gYSBnb29kIGFtb3VudCBvZiBtb25leSwgYSBzdXBlcnN0YXIgd2lsbCBzaWduIG11bHRpLXllYXIgY29udHJhY3RzIGZvciBtaWxsaW9ucyBvZiBkb2xsYXJzLiAKCkluIHRoZSBzdW1tZXIgb2YgMjAxOSwgYW4gTkJBIHN0YXIsIG5hbWVkIFJ1ZHkgR29iZXJ0LCBzaWduZWQgYSBmaXZlLXllYXIgJDIwNSBtaWxsaW9uIGNvbnRyYWN0IGV4dGVuc2lvbiB3aXRoIHRoZSBVdGFoIEphenouIFNoYXF1aWxsZSBPJ05lYWwgY3JpdGljaXplZCBHb2JlcnQncyBnYW1lIGFuZCBjbGFpbWVkIHRoYXQgaGUncyBub3Qgd29ydGggdGhhdCBtdWNoLiAKCkkgd2lsbCBpbnZlc3RpZ2F0ZSBob3cgd2VsbCB0aGUgdG9wLWVhcm5lcnMgb2YgdGhlIGxlYWd1ZSBhcmUgcGVyZm9ybWluZyBjb21wYXJlZCB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlLiBJIHdpbGwgdXNlIGluLWdhbWUgc3RhdGlzdGljcyB0byBkZXRlcm1pbmUgdGhlIHBlcmZvcm1hbmNlIG9mIHRoZSBwbGF5ZXJzIHRvIHNlZSBpZiB0aGV5IGFyZSB3b3J0aCB0aGUgbW9uZXkuCgpgYGB7cn0KI1NldCB1cApsaWJyYXJ5KHJlYWRyKQpsaWJyYXJ5KGRwbHlyKQpgYGAKCmBgYHtyfQojUmVhZGluZyBpbiBkYXRhIGZpbGVzCk5CQTIwMjBfMjAyMVNhbGFyaWVzIDwtIHJlYWRfY3N2KCJOQkEyMDIwOjIwMjFTYWxhcmllcy5jc3YiKQoKTkJBU3RhdHMgPC0gcmVhZF9jc3YoIk5CQVN0YXRzLmNzdiIpCgpTdGF0c2Zyb21OQkEgPC0gcmVhZF9jc3YoIlN0YXRzZnJvbU5CQS5jc3YiKQoKVG9wNTBvZk5CQSA8LSByZWFkX2NzdigiVG9wNTBvZk5CQS5jc3YiKQpgYGAKCmBgYHtyfQojU3VtbWFyeQpzdW1tYXJ5KE5CQTIwMjBfMjAyMVNhbGFyaWVzKQpgYGAKCmBgYHtyfQojU3VtbWFyeQpzdW1tYXJ5KE5CQVN0YXRzKQpgYGAKYGBge3J9Ck5CQTIwMjBfMjAyMVNhbGFyaWVzICU+JQogIHN1bW1hcmlzZShhdmdzYWwgPSBtZWFuKFNhbGFyeSwgbmEucm0gPSBUUlVFKSkKYGBgCmBgYHtyfQpOQkFTdGF0cyAlPiUKICBzdW1tYXJpc2UoYXZncHRzID0gbWVhbihQVFMsIG5hLnJtID0gVFJVRSksCiAgICAgICAgICAgIGF2Z2FzdCA9IG1lYW4oQVNULCBuYS5ybSA9IFRSVUUpLAogICAgICAgICAgICBhdmd0cmIgPSBtZWFuKFRSQiwgbmEucm0gPSBUUlVFKSkKYGBgCkZyb20gdGhlIHN1bW1hcml6ZXMgb2YgdGhlc2UgdHdvIHRhYmxlcywgd2UgY2FuIHNlZSB0aGF0IHRoZSBhdmVyYWdlIHBsYXllciBpcyBwYWlkICQ2LDc1MiwxNTAgZm9yIHRoZSBzZWFzb24uIFRoZSBhdmVyYWdlIHBsYXllciBnZXRzIDguNiBwb2ludHMsIDEuOSBhc3Npc3RzLCBhbmQgMy42IHJlYm91bmRzLgoKSW4gdGhlIG1pZGRsZSBvZiB0aGUgTkJBIHNlYXNvbiwgdGhlIGxlYWd1ZSBob2xkcyBhbiBBbGwtU3RhciBCcmVhay4gT25lIG9mIHRoZSBldmVudHMgYW5kIHRoZSBiaWdnZXN0IG9uZSBpcyB0aGUgQWxsLVN0YXIgZ2FtZS4gVGhpcyBnYW1lIGludm9sdmVzIGFib3V0IDI1IG9mIHRoZSB0b3AgcGxheWVycyBvZiB0aGUgbGVhZ3VlLiBTbyBsZXQncyBzZWUgaG93IHRoZSB0b3AgMjUgY29tcGFyZSB0byB0aGUgcmVzdCBvZiB0aGUgbGVhZ3VlIHN0YXRpc3RpY2FsbHkuCgpgYGB7cn0KI0pvaW5pbmcgc3RhdHMgYW5kIHNhbGFyeSBvZiB0b3AgNTAgcGxheWVycwpUb3A1MG9mTkJBU2FsIDwtCiAgVG9wNTBvZk5CQSAlPiUKICBzZWxlY3QoUGxheWVyLCBQVFMsIFJFQiwgQVNULCBFRkYpICU+JQogIGxlZnRfam9pbihOQkEyMDIwXzIwMjFTYWxhcmllcyAlPiUgc2VsZWN0KFBsYXllciwgU2FsYXJ5KSwgYnkgPSBjKCJQbGF5ZXIiID0gIlBsYXllciIpKQoKIyAlPiUgYXJyYW5nZShkZXNjKFBUUykpCgojQXZlcmFnZSBvZiB0b3AgNTAKVG9wNTBvZk5CQVNhbCAlPiUKICBzdW1tYXJpc2UoYXZncHRzID0gbWVhbihQVFMsIG5hLnJtID0gVFJVRSksCiAgICAgICAgICAgIGF2Z2FzdCA9IG1lYW4oQVNULCBuYS5ybSA9IFRSVUUpLAogICAgICAgICAgICBhdmdyZWIgPSBtZWFuKFJFQiwgbmEucm0gPSBUUlVFKSwKICAgICAgICAgICAgYXZnZWZmID0gbWVhbihFRkYsIG5hLnJtID0gVFJVRSksCiAgICAgICAgICAgIGF2Z3NhbCA9IG1lYW4oU2FsYXJ5LCBuYS5ybSA9IFRSVUUpKQpgYGAKCg==</div>
 
 
 

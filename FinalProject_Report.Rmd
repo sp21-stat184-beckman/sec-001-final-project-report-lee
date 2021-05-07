@@ -57,13 +57,13 @@ From the summarizes of these two tables, we can see that the average player is p
 
 ```{r}
 #Joining stats and salary of top 50 players
-Top50ofNBASal <-
+Top50 <-
   Top50ofNBA %>%
   select(Player, PTS, REB, AST, EFF) %>%
   left_join(NBA2020_2021Salaries %>% select(Player, Salary), by = c("Player" = "Player"))
 
 #Average of top 50
-Top50ofNBASal %>%
+Top50 %>%
   summarise(avgpts = mean(PTS, na.rm = TRUE),
             avgast = mean(AST, na.rm = TRUE),
             avgreb = mean(REB, na.rm = TRUE),
@@ -77,11 +77,11 @@ In the middle of the NBA season, the league holds an All-Star Break. One of the 
 Efficiency is calculated by the formula: (PTS + REB + AST + STL + BLK − Missed FG − Missed FT - TO) / GP. It is used to determine how well a player is playing and who deserves to be crowned MVP at the end of the regular season.
 
 ```{r}
-Top25 <-
+Top22 <-
   Top50ofNBASal %>%
     filter(EFF > 22.75) %>%
     arrange(desc(EFF))
-Top25
+Top22
 ```
 So I filtered the data so that we only get players whose efficiency are better than the average Top 50, 22.75.
 
@@ -90,6 +90,11 @@ Just from looking at the top 10, we can see that Luka Doncic isn't being paid as
 Shaquille O'Neal may have a point when he says that Rudy Gobert is not worth that much.
 
 ```{r}
+TopPlayers <- 
+  Top22 %>%
+    filter( PTS > 10, REB > 10, AST > 8)
 
+TopPlayers %>%
+  pivot_longer(!Player, names_to = "Stat", values_to = "count")
 ```
-
+This table shows some of the best rounded players and who to build a team around. 

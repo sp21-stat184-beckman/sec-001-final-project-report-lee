@@ -44,6 +44,13 @@ summary(NBA2020_2021Salaries)
 summary(NBAStats)
 ```
 ```{r}
+NBAStats %>%
+  ggplot(aes(x = TRB, y = PTS, colour = AST)) +
+  geom_point(size = 2) +
+  geom_smooth(se = F, colour="grey")
+```
+
+```{r}
 NBA2020_2021Salaries %>%
   summarise(avgsal = mean(Salary, na.rm = TRUE))
 ```
@@ -90,9 +97,17 @@ Just from looking at the top 10, we can see that Luka Doncic isn't being paid as
 Shaquille O'Neal may have a point when he says that Rudy Gobert is not worth that much.
 
 ```{r}
+Top22 %>%
+  ggplot(aes(x = Player, weight = EFF)) +
+  geom_bar(fill = "#0c4c8a") +
+  theme_minimal()
+```
+
+```{r}
 TopPlayers <- 
   Top22 %>%
-    filter( PTS > 10, REB > 10, AST > 8)
+    select(Player, PTS, REB, AST, EFF) %>%
+    filter( PTS > 25, REB > 5, AST > 5)
 
 TopPlayers %>%
   pivot_longer(!Player, names_to = "Stat", values_to = "count")

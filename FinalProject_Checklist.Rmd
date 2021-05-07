@@ -42,7 +42,7 @@ output: html_notebook
 (C) .Rmd Line number(s) for a pivot_wider or pivot_longer operation (or equivalent): 98
 
 
-(D) .Rmd Line number(s) for use of regular expressions: 82, 95
+(D) .Rmd Line number(s) for use of regular expressions: 82, 96
 
 
 (E) .Rmd Line number(s) for use of reduction and/or transformation functions: 67-71

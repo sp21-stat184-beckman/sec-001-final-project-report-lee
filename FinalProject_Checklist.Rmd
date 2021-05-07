@@ -24,28 +24,28 @@ output: html_notebook
 
 *Description: (1) Analysis includes at least two different data sources. (2) Primary data source may NOT be loaded from an R package--though supporting data may. (3) Access to all data sources is contained within the analysis. (4) Imported data is inspected at beginning of analysis using one or more R functions: e.g., str, glimpse, head, tail, names, nrow, etc*
 
-(A) .Rmd Line numbers where at least two different data sources are imported:  
+(A) .Rmd Line numbers where at least two different data sources are imported: 28-34
 
 
-(B) .Rmd Line numbers for inspecting data intake:  
+(B) .Rmd Line numbers for inspecting data intake: 39, 44
 
 
 ### Data Wrangling / Cleaning / ect (5 out of 7 required)
 
 
-(A) .Rmd Line number(s) for general data wrangling: 
+(A) .Rmd Line number(s) for general data wrangling: 48, 52, 67
 
 
-(B) .Rmd Line number(s) for a join operation: 
+(B) .Rmd Line number(s) for a join operation: 63
 
 
-(C) .Rmd Line number(s) for a pivot_wider or pivot_longer operation (or equivalent):
+(C) .Rmd Line number(s) for a pivot_wider or pivot_longer operation (or equivalent): 98
 
 
-(D) .Rmd Line number(s) for use of regular expressions: 
+(D) .Rmd Line number(s) for use of regular expressions: 82, 95
 
 
-(E) .Rmd Line number(s) for use of reduction and/or transformation functions: 
+(E) .Rmd Line number(s) for use of reduction and/or transformation functions: 67-71
 
 
 (F) .Rmd Line number(s) for use of user-defined functions: 

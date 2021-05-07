@@ -17,6 +17,10 @@ I will investigate how well the top-earners of the league are performing compare
 #Set up
 library(readr)
 library(dplyr)
+library(mosaic)
+library(tidyverse)
+library(ggplot2)
+library(esquisse)
 ```
 
 ```{r}
@@ -73,13 +77,19 @@ In the middle of the NBA season, the league holds an All-Star Break. One of the 
 Efficiency is calculated by the formula: (PTS + REB + AST + STL + BLK − Missed FG − Missed FT - TO) / GP. It is used to determine how well a player is playing and who deserves to be crowned MVP at the end of the regular season.
 
 ```{r}
-Top50ofNBASal %>%
-  filter(EFF > 22.75) %>%
-  arrange(desc(EFF))
+Top25 <-
+  Top50ofNBASal %>%
+    filter(EFF > 22.75) %>%
+    arrange(desc(EFF))
+Top25
 ```
 So I filtered the data so that we only get players whose efficiency are better than the average Top 50, 22.75.
 
 Just from looking at the top 10, we can see that Luka Doncic isn't being paid as much and the rest of the players. And Rudy Gobert isn't even on the list. 
 
 Shaquille O'Neal may have a point when he says that Rudy Gobert is not worth that much.
+
+```{r}
+
+```
 
